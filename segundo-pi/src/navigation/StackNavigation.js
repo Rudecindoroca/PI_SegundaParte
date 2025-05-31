@@ -28,12 +28,13 @@ function StackNavigation() {
                 }}
 
                 />
+                
              <Stack.Screen
              name='Registro' 
              component={Registro}
              options = {
                 {
-                    headerShown: false
+                    
                 }
              }
              />

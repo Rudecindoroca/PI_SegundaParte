@@ -26,6 +26,7 @@ class Home extends Component{
                     </Text>
 
                 </TouchableOpacity>
+
                   <Image
                     style={styles.logo}
                     source={require(`../../assets/logo.png`)}

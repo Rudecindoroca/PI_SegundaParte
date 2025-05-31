@@ -3,6 +3,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Perfil from "../screens/Perfil"
 import {FontAwesome} from '@expo/vector-icons'
+import Home from '../screens/Home'
 
 import Login from "../screens/Login"
 
@@ -17,10 +18,18 @@ export default function BottomTabs() {
           component={Perfil}
           options = {
                 {
-                tabBarIcon: () => <FontAwesome name='user' size={24} color={'red'} />
+                tabBarIcon: () => <FontAwesome name='user' size={24} color={'purple'} />
                 }
              }
           
+          />
+
+           <Tab.Screen 
+          name='Home' 
+          component={Home}
+          options={{
+            tabBarIcon: () => <FontAwesome name='home' size={24} color={'purple'} />
+          }}
           />
 
           <Tab.Screen
@@ -28,7 +37,7 @@ export default function BottomTabs() {
           component={Login}
           options = {
                 {
-                tabBarIcon: () => <FontAwesome name='sign-in' size={24} color={'red'} />
+                tabBarIcon: () => <FontAwesome name='sign-in' size={24} color={'purple'} />
                 }
              }
           
