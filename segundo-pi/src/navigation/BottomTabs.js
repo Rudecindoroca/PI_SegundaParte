@@ -13,6 +13,14 @@ const Tab= createBottomTabNavigator();
 export default function BottomTabs() {
   return (
     <Tab.Navigator>
+          <Tab.Screen 
+              name='Home' 
+              component={Home}
+              options={{
+                tabBarIcon: () => <FontAwesome name='home' size={24} color={'purple'} />
+              }}
+              />
+
          <Tab.Screen
           name='Perfil' 
           component={Perfil}
@@ -24,14 +32,7 @@ export default function BottomTabs() {
           
           />
 
-           <Tab.Screen 
-          name='Home' 
-          component={Home}
-          options={{
-            tabBarIcon: () => <FontAwesome name='home' size={24} color={'purple'} />
-          }}
-          />
-
+          
           <Tab.Screen
           name='Login' 
           component={Login}

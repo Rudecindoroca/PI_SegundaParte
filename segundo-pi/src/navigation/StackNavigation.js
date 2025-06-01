@@ -10,15 +10,26 @@ const Stack = createNativeStackNavigator()
 function StackNavigation() {
     return(
         <Stack.Navigator>
+             <Stack.Screen
+             name='Registro' 
+             component={Registro}
+             options = {
+                {
+                     headerShown:false
+                    
+                }
+             }
+             />
             <Stack.Screen
-             name='Home' 
-             component={Home}
+             name='Login' 
+             component={Login}
              options = {
                 {
                     headerShown: false
                 }
              }
              />
+            
 
               <Stack.Screen
                 name='Tab'
@@ -29,12 +40,14 @@ function StackNavigation() {
 
                 />
                 
+            
+
              <Stack.Screen
-             name='Registro' 
-             component={Registro}
+             name='Home' 
+             component={Home}
              options = {
                 {
-                    
+                    headerShown: false
                 }
              }
              />
