@@ -53,7 +53,7 @@ export default class Registro extends Component {
             
                         })
                         .then(()=>{
-                            this.props.navigation.navigate('Tab')
+                            this.props.navigation.navigate('Login')
                         })
 
                 })
