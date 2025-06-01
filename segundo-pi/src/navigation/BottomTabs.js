@@ -32,17 +32,7 @@ export default function BottomTabs() {
           
           />
 
-          
-          <Tab.Screen
-          name='Login' 
-          component={Login}
-          options = {
-                {
-                tabBarIcon: () => <FontAwesome name='sign-in' size={24} color={'purple'} />
-                }
-             }
-          
-          />
+        
     </Tab.Navigator>
   )
 }
