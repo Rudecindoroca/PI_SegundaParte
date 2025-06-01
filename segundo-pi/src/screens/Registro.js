@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { Component} from 'react'
 
 export default class Registro extends Component {
@@ -8,6 +8,7 @@ export default class Registro extends Component {
         this.state = {
             email: '',
             password: '',
+            error: false,
             
 
         }
@@ -15,8 +16,18 @@ export default class Registro extends Component {
     }
 
     registrarUsuario(){
-        
+        if (this.state.email === "Rude" && 
+            this.state.password === "12345"
+         ){
+            this.props.navigation.navigate('Tab')
+
+         }else{
+            this.setState({email:'', password:'', error:true})
+         }
+
     }
+     
+
      
     render() {
         return(
@@ -26,8 +37,8 @@ export default class Registro extends Component {
 
                     style={styles.input}
                     KeyboardType = 'default'
-                    value={this.state.input1}
-                    onChangeText={(texto)=> this.setState({email: texto})}
+                    value={this.state.email}
+                    onChangeText={(texto)=> this.setState({email: texto, error: false})}
                     placeholder='Ingresa Tu mail'
                 
                 />
@@ -35,8 +46,8 @@ export default class Registro extends Component {
 
                     style={styles.input}
                     KeyboardType = 'default'
-                    value={this.state.input1}
-                    onChangeText={(texto)=> this.setState({password: texto})}
+                    value={this.state.password}
+                    onChangeText={(texto)=> this.setState({password: texto, error: false})}
                     placeholder='Ingresa Tu Contrasena'
                     secureTextEntry = {true}
                 
@@ -45,6 +56,13 @@ export default class Registro extends Component {
                 <TouchableOpacity onPress={()=> this.registrarUsuario()}>
                     <Text>Registrame</Text> 
                 </TouchableOpacity>
+
+                 {
+                    this.state.error ? <Text>Credenciales invalidas</Text> : null
+                  }
+
+                  
+           
 
             </View>
         )
