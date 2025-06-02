@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     botonPrimario: {
-        backgroundColor: '#007AFF', // azul moderno
+        backgroundColor: '#007AFF',
         paddingVertical: 12,
         paddingHorizontal: 20,
         borderRadius: 25,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',},
 
     botonSecundario: {
-            backgroundColor: '#E5E5EA', // gris clarito
+            backgroundColor: '#E5E5EA',
             paddingVertical: 12,
             paddingHorizontal: 20,
             borderRadius: 25,

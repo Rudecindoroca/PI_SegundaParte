@@ -58,7 +58,7 @@ class Home extends Component {
 
         const nuevosLikes = yaLikeo
             ? currentLikes.filter(email => email !== userEmail)
-            : [...currentLikes, userEmail]; //Tengo mis dudas sobre si poner o no los '...'
+            : [...currentLikes, userEmail];
 
         db.collection('posts')
             .doc(id)
@@ -73,7 +73,7 @@ class Home extends Component {
     }
 
     formatearFecha(timestamp) {
-        const fecha = new Date(timestamp); //Quiero simplificar esta parte
+        const fecha = new Date(timestamp);
         return `${fecha.getDate().toString().padStart(2, '0')}/${(fecha.getMonth()+1).toString().padStart(2, '0')}/${fecha.getFullYear()} - ${fecha.getHours().toString().padStart(2, '0')}:${fecha.getMinutes().toString().padStart(2, '0')}`;
     }
 
@@ -115,7 +115,7 @@ class Home extends Component {
                             <View style={styles.acciones}>
                                 <TouchableOpacity onPress={() => this.likePost(item.id, item.data.likes)} style={styles.like}>
                                     {item.data.likes.includes(auth.currentUser.email) ? (
-                                        <FontAwesome name='heart' size={20} color='purple' /> //Esto es un chiche, podemos simplificarlo, lo entiendo perfecto igual
+                                        <FontAwesome name='heart' size={20} color='purple' />
                                     ) : (
                                         <FontAwesome name='heart-o' size={20} color='purple' />
                                     )}

@@ -41,7 +41,6 @@ export default class Perfil extends Component {
           this.setState({ misPosts: postsUsuario });
         });
     }
-    
   }
 
   logout(){
@@ -62,15 +61,16 @@ export default class Perfil extends Component {
     const fecha = new Date(timestamp);
     return `${fecha.getDate().toString().padStart(2, '0')}/${(fecha.getMonth()+1).toString().padStart(2, '0')}/${fecha.getFullYear()} - ${fecha.getHours().toString().padStart(2, '0')}:${fecha.getMinutes().toString().padStart(2, '0')}`;
   }
-  
 
   render(){
     return (
       <View style={styles.container}>
     
         <Text style={styles.titulo}>Tu Perfil</Text>
-        <Text style={styles.texto}>Usuario: {this.state.username}</Text>
-        <Text style={styles.texto}>Email: {this.state.email}</Text>
+        <View style={styles.cajaUsuario}>
+          <Text style={styles.textoCaja}>Usuario: {this.state.username}</Text>
+          <Text style={styles.textoCaja}>Email: {this.state.email}</Text>
+        </View>
 
         <Text style={styles.subtitulo}>Tus posteos:</Text>
 
@@ -100,9 +100,7 @@ export default class Perfil extends Component {
       </View>
     ) 
   }
-  
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -116,11 +114,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     color: 'black'
-  },
-  texto: {
-    fontSize: 16,
-    color: 'black',
-    marginBottom: 5
   },
   subtitulo: {
     marginTop: 20,
@@ -160,11 +153,25 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOpacity: 0.3,
     shadowRadius: 4,
+    marginBottom: 15, 
   },
   logoutButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
     letterSpacing: 1,
+  },
+  cajaUsuario: {
+    backgroundColor: '#6C4FC2',
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 15,
+    width: '90%',
+    alignItems: 'center'
+  },
+  textoCaja: {
+    color: '#fff',
+    fontSize: 16,
+    marginBottom: 5
   },
 });
