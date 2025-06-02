@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native'
 import React, { Component } from 'react'
 import { auth, db } from '../firebase/config'
 
@@ -8,28 +8,53 @@ export default class Perfil extends Component {
     super(props)
     this.state = {
       username: '',
-      email: ''
+      email: '',
+      misPosts: [],
     }
   }
 
   componentDidMount(){
-     const user = auth.currentUser;
-        if(user){
-            this.setState({ email: user.email });
-            db.collection('users')
-              .where('owner', '==', user.email)
-              .onSnapshot((docs) => {
-                  docs.forEach(doc => {
-                      this.setState({ username: doc.data().username })
-                  })
-              })
-        }
+    const user = auth.currentUser;
+    if(user){
+      this.setState({ email: user.email });
+
+      db.collection('users')
+        .where('owner', '==', user.email)
+        .onSnapshot((docs) => {
+          docs.forEach(doc => {
+            this.setState({ username: doc.data().username })
+          })
+        })
+
+      db.collection('posts')
+        .where('owner', '==', user.email)
+        .orderBy('createdAt', 'desc')
+        .onSnapshot((docs) => {
+          let postsUsuario = [];
+          docs.forEach(doc => {
+            postsUsuario.push({
+              id: doc.id,
+              data: doc.data()
+            });
+          });
+          this.setState({ misPosts: postsUsuario });
+        });
+    }
     
   }
 
   logout(){
-    auth.signOut().then(()=> this.props.navigation.navigate('Registro'))
+    auth.signOut()
+    .then(()=> this.props.navigation.navigate('Registro'))
     .catch(err=> console.log('err', err))
+  }
+
+  borrarPost(id) {
+    db.collection('posts')
+      .doc(id)
+      .delete()
+      .then(() => console.log('Post eliminado desde Perfil'))
+      .catch(err => console.log(err));
   }
 
   render(){
@@ -38,8 +63,9 @@ export default class Perfil extends Component {
     <View style={styles.container}>
     
       <Text> Tu Perfil</Text>
-       <Text>Usuario: {this.state.username}</Text>
-       <Text>Email: {this.state.email}</Text>
+      <Text>Usuario: {this.state.username}</Text>
+      <Text>Email: {this.state.email}</Text>
+      <Text style={{marginTop: 20, fontWeight: 'bold'}}>Tus posteos:</Text>
 
       <TouchableOpacity style={styles.logoutButton} onPress={()=> this.logout()}>
         <Text style={styles.logoutButtonText}>Cerrar Sesion</Text>
