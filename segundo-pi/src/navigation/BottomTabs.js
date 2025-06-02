@@ -17,6 +17,7 @@ export default function BottomTabs() {
               name='Home' 
               component={Home}
               options={{
+                headerShown: false ,
                 tabBarIcon: () => <FontAwesome name='home' size={24} color={'purple'} />
               }}
               />
@@ -26,6 +27,7 @@ export default function BottomTabs() {
           component={Perfil}
           options = {
                 {
+                headerShown: false ,
                 tabBarIcon: () => <FontAwesome name='user' size={24} color={'purple'} />
                 }
              }
