@@ -140,6 +140,8 @@ const styles = StyleSheet.create({
     },
     container: {
         padding: 20,
+        backgroundColor: '#8F9498',
+        flex: 1,
     },
     titulo: {
         fontSize: 24,

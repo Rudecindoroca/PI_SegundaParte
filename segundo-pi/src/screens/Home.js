@@ -81,10 +81,6 @@ class Home extends Component {
         return (
             <View style={styles.container}>
 
-                <TouchableOpacity onPress={() => this.redireccionar('Tab')}>
-                    <Text>Entrar a la aplicacion</Text>
-                </TouchableOpacity>
-
                 <Image
                     style={styles.logo}
                     source={require(`../../assets/logo.png`)}
@@ -143,7 +139,7 @@ class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#d1d1d1',
+        backgroundColor: '#8F9498',
         alignItems: 'center',
         paddingTop: 40,
     },
@@ -159,14 +155,16 @@ const styles = StyleSheet.create({
         width: 200,
     },
     posteo: {
-        borderWidth: 1,
-        borderColor: 'purple',
+        borderWidth: 2,
+        borderColor: '#6C4FC2',
         textAlign: "center",
         width: '90%',
         marginBottom: 10,
         padding: 8,
         borderRadius: 6,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        
+
     },
     tituloSeccion: {
         marginTop: 20,
@@ -180,7 +178,9 @@ const styles = StyleSheet.create({
         padding: 10,
         marginVertical: 5,
         borderRadius: 8,
-        width: '90%'
+        width: '90%',
+        marginLeft:15,
+        
     },
     autor: {
         fontWeight: 'bold',
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
         color: 'red'
     },
     botonSubir: {
-        backgroundColor: 'purple',
+        backgroundColor: '#6C4FC2',
         padding: 10,
         borderRadius: 6,
         marginBottom: 10
