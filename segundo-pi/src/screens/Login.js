@@ -21,6 +21,18 @@ export default class Login extends Component {
     
 
     loguearUsuario(email, password){
+
+        if(
+            (
+                email !== '' && 
+            password !=='')
+            && 
+            password.length>= 6
+             && 
+             email.includes('@') 
+            
+        )
+        
         auth.signInWithEmailAndPassword(email, password)
         .then((user)=> this.props.navigation.navigate('Tab'))
         .catch((err)=> console.log(err))
