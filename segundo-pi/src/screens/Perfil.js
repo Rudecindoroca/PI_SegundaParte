@@ -68,9 +68,9 @@ export default class Perfil extends Component {
     return (
       <View style={styles.container}>
     
-        <Text> Tu Perfil</Text>
-        <Text>Usuario: {this.state.username}</Text>
-        <Text>Email: {this.state.email}</Text>
+        <Text style={styles.titulo}>Tu Perfil</Text>
+        <Text style={styles.texto}>Usuario: {this.state.username}</Text>
+        <Text style={styles.texto}>Email: {this.state.email}</Text>
 
         <Text style={styles.subtitulo}>Tus posteos:</Text>
 
