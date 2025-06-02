@@ -8,12 +8,14 @@ export default class Perfil extends Component {
     super(props)
     this.state = {
       username: '',
+      email: ''
     }
   }
 
   componentDidMount(){
      const user = auth.currentUser;
         if(user){
+            this.setState({ email: user.email });
             db.collection('users')
               .where('owner', '==', user.email)
               .onSnapshot((docs) => {
@@ -37,6 +39,7 @@ export default class Perfil extends Component {
     
       <Text> Tu Perfil</Text>
        <Text>Usuario: {this.state.username}</Text>
+       <Text>Email: {this.state.email}</Text>
 
       <TouchableOpacity style={styles.logoutButton} onPress={()=> this.logout()}>
         <Text style={styles.logoutButtonText}>Cerrar Sesion</Text>
